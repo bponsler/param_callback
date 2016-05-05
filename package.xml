@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>param_callback</name>
+  <version>0.0.1</version>
+  <description>
+    Package for the getting notifications when a ROS parameter changes.
+  </description>
+  <maintainer email="ponsler@gmail.com">bponsler</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+
+  <run_depend>roscpp</run_depend>
+
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>
