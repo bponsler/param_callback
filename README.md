@@ -33,13 +33,13 @@ Here are some examples of how to use the param_callback::ParamCallback class:
 void onChange(XmlRpc::XmlRpcValue prev, XmlRpc::XmlRpcValue current)
 {
     if (!prev.valid()) {
-        ROS_INFO("******* The param was found!");
+        ROS_INFO("The param was found!");
     }
     else if (!current.valid()) {
-        ROS_INFO("******* The param was lost!");
+        ROS_INFO("The param was lost!");
     }
     else {
-        ROS_INFO("******* The param changed value!");
+        ROS_INFO("The param changed value!");
     }
 }
 
@@ -82,13 +82,13 @@ public:
     void onChange(XmlRpc::XmlRpcValue prev, XmlRpc::XmlRpcValue current)
     {
         if (!prev.valid()) {
-            ROS_INFO("******* The param was found!");
+            ROS_INFO("The param was found!");
         }
         else if (!current.valid()) {
-            ROS_INFO("******* The param was lost!");
+            ROS_INFO("The param was lost!");
         }
         else {
-            ROS_INFO("******* The param changed value!");
+            ROS_INFO("The param changed value!");
         }
     }
 };
