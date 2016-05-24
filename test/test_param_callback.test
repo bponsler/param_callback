@@ -1,0 +1,3 @@
+<launch>
+    <test pkg="param_callback" type="_tests" test-name="_tests" />
+</launch>

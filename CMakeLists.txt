@@ -50,3 +50,13 @@ add_library(${PROJECT_NAME}
 )
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 set(LIBS ${PROJECT_NAME} ${LIBS})
+
+
+############################################################
+# Define tests
+#
+
+if(CATKIN_ENABLE_TESTING)
+  catkin_add_gtest(param_callback_tests test/param_callback_tests.cpp)
+  target_link_libraries(param_callback_tests ${LIBS})
+endif()
