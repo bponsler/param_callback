@@ -5,7 +5,7 @@
   <description>
     Package for the getting notifications when a ROS parameter changes.
   </description>
-  <maintainer email="ponsler@gmail.com">bponsler</maintainer>
+  <maintainer email="ponsler@gmail.com">Brett Ponsler</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
