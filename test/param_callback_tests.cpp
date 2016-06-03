@@ -197,7 +197,7 @@ TEST(ParamCallbackTestSuite, testNhConstructor)
     std::string param = "a_very_different_parameter";
     nh.deleteParam(param);  // Just to be sure
 
-    param_callback::ParamCallback pc(param, &onCtorParam);
+    param_callback::ParamCallback pc(nh, param, &onCtorParam);
 
     // The parameter is not set, and should not the callback
     g_shouldNotCall = true;
@@ -244,6 +244,44 @@ TEST(ParamCallbackTestSuite, testNhConstructor)
     g_paramSet = false;
     g_paramDeleted = false;
     pc.update();
+}
+
+TEST(ParamCallbackTestSuite, testConstructorInvalidParam)
+{
+    try
+    {
+        param_callback::ParamCallback pc("", &onCtorParam);
+        ADD_FAILURE() << "Expected error when using empty param";
+    }
+    catch (...) { }  // Expected error
+
+    try
+    {
+        ros::NodeHandle nh("/some/random/namespace");
+        param_callback::ParamCallback pc(nh, "", &onCtorParam);
+        ADD_FAILURE() << "Expected error when using empty param";
+    }
+    catch (...) { }  // Expected error
+}
+
+TEST(ParamCallbackTestSuite, testConstructorInvalidCallback)
+{
+    try
+    {
+        param_callback::ParamCallback pc(
+            "param", param_callback::ChangeCallbackFn());
+        ADD_FAILURE() << "Expected error when using invalid callback";
+    }
+    catch (...) { }  // Expected error
+
+    try
+    {
+        ros::NodeHandle nh("/some/random/namespace");
+        param_callback::ParamCallback pc(
+            nh, "param", param_callback::ChangeCallbackFn());
+        ADD_FAILURE() << "Expected error when using invalid callback";
+    }
+    catch (...) { }  // Expected error
 }
 
 TEST(ParamCallbackTestSuite, testChangingType)
