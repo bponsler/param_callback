@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(param_callback)
 
+# Support generating code coverage using gcov. Compile using:
+#     GENERATE_COVERAGE=1 catkin_make
+set(GENERATE_COVERAGE $ENV{GENERATE_COVERAGE})
+if(GENERATE_COVERAGE)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage") # enabling coverage
+endif(GENERATE_COVERAGE)
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
